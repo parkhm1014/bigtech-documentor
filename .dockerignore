@@ -1,0 +1,107 @@
+# BigTech Retriever - Docker ignore file
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.pyc
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# Conda
+miniconda3/
+anaconda3/
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Cache directories
+.cache/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Data directories (too large for Docker build)
+origin/
+images/
+temp_crops/
+figures/
+data/
+ocr_output/
+*.pdf
+*.png
+*.jpg
+*.jpeg
+
+# Model checkpoints and weights
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.pt
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+*.key
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Temporary files
+tmp/
+temp/
+*.tmp

@@ -1,0 +1,77 @@
+{
+  "name": "BigTech Retriever (CUDA 12.8 + Ubuntu 22.04 + Python 3.12)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  // GPU support (requires NVIDIA Docker runtime)
+  "runArgs": [
+    "--gpus=all",
+    "--shm-size=16gb",
+    "--ipc=host"
+  ],
+
+  // Set *default* container specific settings.json values on container create.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "python.analysis.typeCheckingMode": "basic",
+        "editor.formatOnSave": true,
+        "files.autoSave": "afterDelay",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "njpwerner.autodocstring",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    }
+  },
+
+  // Environment variables
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HOME": "/workspace/.cache/huggingface"
+  },
+
+  // Mount cache directories for faster rebuilds
+  // Using named volume (auto-created by Docker, no manual mkdir needed)
+  "mounts": [
+    "source=bigtech-retriever-cache,target=/workspace/.cache,type=volume"
+  ],
+
+  // Workspace folder inside the container
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [8888, 6006],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "python3 --version && nvcc --version && python3 -c 'import torch; print(f\"PyTorch: {torch.__version__}\"); print(f\"CUDA available: {torch.cuda.is_available()}\"); print(f\"CUDA version: {torch.version.cuda}\")'",
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "root",
+
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

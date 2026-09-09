@@ -1,0 +1,115 @@
+# BigTech Retriever - Python Requirements
+# Compatible with Python 3.12 and CUDA 12.8
+
+# NOTE: PyTorch, torchvision, torchaudio, and flash-attn are installed separately in Dockerfile
+# torch==2.7.1+cu128 (installed via --index-url)
+# torchvision==0.22.1+cu128
+# torchaudio==2.7.1+cu128
+# flash-attn==2.8.3 (built from source)
+
+# Deep Learning & ML
+transformers==4.46.3
+tokenizers==0.20.3
+accelerate==1.11.0
+safetensors==0.6.2
+triton==3.3.1
+
+# DeepSeek-OCR dependencies
+einops==0.8.1
+addict==2.4.0
+easydict==1.13
+
+# LangChain ecosystem
+langchain==1.0.5
+langchain-classic==1.0.0
+langchain-community==0.4.1
+langchain-core==1.0.4
+langchain-text-splitters==1.0.0
+langchain-openai==1.0.2
+langgraph==1.0.2
+langgraph-checkpoint==3.0.1
+langgraph-prebuilt==1.0.2
+langgraph-sdk==0.2.9
+langsmith==0.4.41
+
+# OpenAI
+openai==2.7.1
+tiktoken==0.12.0
+
+# Vector stores & retrieval
+faiss-cpu==1.12.0
+rank-bm25==0.2.2
+sentence-transformers==5.1.2
+
+# Scientific computing
+numpy==2.3.4
+scipy==1.16.3
+pandas==2.3.3
+scikit-learn==1.7.2
+
+# Visualization
+matplotlib==3.10.7
+pillow==12.0.0
+
+# PDF processing
+pdf2image==1.17.0
+
+# Data processing
+datasets==4.3.0
+pyarrow==22.0.0
+dill==0.4.0
+
+# Utilities
+python-dotenv==1.2.1
+pyyaml==6.0.3
+tqdm==4.67.1
+requests==2.32.5
+httpx==0.28.1
+httpx-sse==0.4.3
+
+# Validation & serialization
+pydantic==2.12.4
+pydantic-core==2.41.5
+pydantic-settings==2.11.0
+dataclasses-json==0.6.7
+marshmallow==3.26.1
+
+# Web & async
+aiohttp==3.13.2
+beautifulsoup4==4.14.2
+soupsieve==2.8
+
+# Database
+sqlalchemy==2.0.44
+
+# Jupyter (for notebook support)
+ipython==9.7.0
+ipykernel==7.1.0
+jupyter-client==8.6.3
+ipywidgets==8.1.8
+jupyterlab-widgets==3.0.16
+widgetsnbextension==4.0.15
+
+# Type checking & inspection
+typing-extensions==4.15.0
+typing-inspect==0.9.0
+typing-inspection==0.4.2
+mypy-extensions==1.1.0
+
+# Misc
+jinja2==3.1.6
+markupsafe==3.0.3
+packaging==25.0
+filelock==3.20.0
+fsspec==2025.9.0
+huggingface-hub==0.36.0
+regex==2025.11.3
+sympy==1.14.0
+networkx==3.5
+joblib==1.5.2
+threadpoolctl==3.6.0
+tenacity==9.1.2
+jsonpatch==1.33
+jsonpointer==3.0.0
+orjson==3.11.4
+ormsgpack==1.12.0
